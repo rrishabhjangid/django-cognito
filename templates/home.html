@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% if error %}<div class='error'>{{ error }}</div>{% endif %}
+  <h1>Welcome to the Demo App</h1>
+  <p>Secure sign-in powered by AWS Cognito. Your password is entered on Cognito's page and never touches this app.</p>
+  <a class='btn' href="{% url 'login' %}">Sign in</a>
+{% endblock %}

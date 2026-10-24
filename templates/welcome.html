@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Welcome, {{ user.email|default:user.username }}!</h1>
+  <p>You are signed in. The table below shows the verified claims from your Cognito ID token.</p>
+  <table>
+    {% for key, value in claims.items %}
+      <tr><th>{{ key }}</th><td>{{ value }}</td></tr>
+    {% endfor %}
+  </table>
+  <form method='post' action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button class='btn' type='submit'>Log out</button>
+  </form>
+{% endblock %}
